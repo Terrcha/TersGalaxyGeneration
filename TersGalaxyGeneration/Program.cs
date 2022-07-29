@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.Diagnostics;
+using System.Numerics;
 
 namespace TersGalaxyGeneration
 {
@@ -15,62 +16,46 @@ namespace TersGalaxyGeneration
 
     public class GalaxyGen
     {
-        private Vector2 _minMapSize = new Vector2(-500, -500);
-        private Vector2 _maxMapSize = new Vector2(500, 500);
+        private static Vector2 _mapSize = new Vector2(-500, 500);
 
         private static MapSetup _mapSetup = MapSetup.Medium;
 
-        private int _maxDepth = 10;
-        private int _maxNumberOfSystems = 1500;
-        private int _minNumberOfSystems = 500;
+        private static int _maxDepth = 10;
+        private static int _maxNumberOfSystems = 1500;
+        private static int _minNumberOfSystems = 500;
 
-        private Vector2[] _generatedSystems;
+        private static Vector2[] _generatedSystems;
+        private static int _numberOfSystems;
+
+        private static List<System> _systems;
 
         static void Main()
         {
+            
+            
             SystemGeneration();
+            GenerateSystems();
         }
 
-        public static int GetMapSize()
+        private static void System()
         {
-            int systemAmount = 0;
-            switch (_mapSetup)
-            {
-                case MapSetup.Tiny:
-                    systemAmount = 200;
-                    break;
-                case MapSetup.Small:
-                    systemAmount = 400;
-                    break;
-                case MapSetup.Medium:
-                    systemAmount = 600;
-                    break;
-                case MapSetup.Large:
-                    systemAmount = 800;
-                    break;
-                case MapSetup.Huge:
-                    systemAmount = 1000;
-                    break;
-                case MapSetup.Massive:
-                    systemAmount = 1500;
-                    break;
-                case MapSetup.Gargantuan:
-                    systemAmount = 2000;
-                    break;
-                default:
-                    systemAmount = 1000;
-                    break;
-            }
-
-            return systemAmount;
+            int id;
+            string name;
+            Vector2 pos;
+            string initializer;
         }
+
+        private static void SystemGeneration()
+        {
+            CheckUserInputForMapSize();
+        }
+
 
         /// <summary>
         /// Check user input for which size galaxy should be generated.
         /// </summary>
         private static void CheckUserInputForMapSize()
         {
-            
             Console.WriteLine("Choose which system size to generate");
             Console.WriteLine("\t1 - Tiny");
             Console.WriteLine("\t2 - Small");
@@ -110,13 +95,79 @@ namespace TersGalaxyGeneration
                     Console.WriteLine("MapSetup set to Gargantuan");
                     break;
             }
+
+            _numberOfSystems = GetMapSize();
         }
 
-        private static void SystemGeneration()
+        private static int GetMapSize()
         {
-            CheckUserInputForMapSize();
+            int systemAmount = 0;
+            switch (_mapSetup)
+            {
+                case MapSetup.Tiny:
+                    systemAmount = 200;
+                    break;
+                case MapSetup.Small:
+                    systemAmount = 400;
+                    break;
+                case MapSetup.Medium:
+                    systemAmount = 600;
+                    break;
+                case MapSetup.Large:
+                    systemAmount = 800;
+                    break;
+                case MapSetup.Huge:
+                    systemAmount = 1000;
+                    break;
+                case MapSetup.Massive:
+                    systemAmount = 1500;
+                    break;
+                case MapSetup.Gargantuan:
+                    systemAmount = 2000;
+                    break;
+                default:
+                    systemAmount = 1000;
+                    break;
+            }
+
+            return systemAmount;
+        }
+
+        private static void GenerateSystems()
+        {
+            // Initialise
+            _systems = new List<System>(_numberOfSystems);
+            _generatedSystems = new Vector2[_numberOfSystems];
             
+            for (int i = 0; i < _numberOfSystems; i++)
+            {
+                Random rnd = new Random();
+                int systemX = rnd.Next((int)_mapSize.X, (int)_mapSize.Y);
+                int systemY = rnd.Next((int)_mapSize.X, (int)_mapSize.Y);
+
+                _generatedSystems[i] = new Vector2(systemX, systemY);
+                System generatedSystem = new System()
+                {
+                    Id = i,
+                    Name = "i",
+                    Pos = _generatedSystems[i],
+                    Initializer = $"{i}_sytem_initializer"
+                };
+                _systems.Add(generatedSystem);
+            }
             
         }
+
+        private void CheckForDuplicates()
+        {
+        }
+    }
+
+    public class System
+    {
+        public int Id;
+        public string Name = "";
+        public Vector2 Pos;
+        public string Initializer = "";
     }
 }
