@@ -141,10 +141,27 @@ namespace TersGalaxyGeneration
                 _systems.Add(generatedSystem);
             }
             
+            CheckForDuplicates();
+            
         }
 
-        private void CheckForDuplicates()
+        private static void CheckForDuplicates()
         {
+            Vector2[] systemArray = new Vector2[_systems.Count];
+            for (int i = 0; i < _systems.Count; i++)
+            {
+                systemArray[i] = _systems[i].Pos;
+            }
+
+            var groups = systemArray.GroupBy(v => v);
+            foreach (var group in groups)
+            {
+                if (group.Count() > 1 )
+                {
+                    Console.WriteLine("Value {0} has {1} items", group.Key, group.Count());
+                }
+            }
+
         }
     }
     
