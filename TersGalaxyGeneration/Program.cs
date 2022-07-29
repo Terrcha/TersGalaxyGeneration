@@ -19,23 +19,21 @@ namespace TersGalaxyGeneration
         private static Vector2 _mapSize = new Vector2(-500, 500);
         private static MapSetup _mapSetup = MapSetup.Medium;
         private static int _maxDepth = 10;
-        private static Vector2[] _generatedSystems = {};
+        private static Vector2[] _generatedSystems = { };
         private static int _numberOfSystems;
-        private static List<System> _systems = new List<System>(){};
+        private static List<System> _systems = new List<System>() { };
 
         static void Main()
         {
-            
-            
             SystemGeneration();
             GenerateSystems();
         }
-        
+
         private static void SystemGeneration()
         {
             CheckUserInputForMapSize();
         }
-        
+
         /// <summary>
         /// Check user input for which size galaxy should be generated.
         /// </summary>
@@ -123,7 +121,7 @@ namespace TersGalaxyGeneration
             // Initialise
             _systems = new List<System>(_numberOfSystems);
             _generatedSystems = new Vector2[_numberOfSystems];
-            
+
             for (int i = 0; i < _numberOfSystems; i++)
             {
                 Random rnd = new Random();
@@ -136,13 +134,12 @@ namespace TersGalaxyGeneration
                     Id = i,
                     Name = "i",
                     Pos = _generatedSystems[i],
-                    Initializer = $"{i}_sytem_initializer"
+                    Initializer = $"{i}_system_initializer"
                 };
                 _systems.Add(generatedSystem);
             }
-            
+
             CheckForDuplicates();
-            
         }
 
         private static void CheckForDuplicates()
@@ -152,19 +149,20 @@ namespace TersGalaxyGeneration
             {
                 systemArray[i] = _systems[i].Pos;
             }
-
+            
             var groups = systemArray.GroupBy(v => v);
             foreach (var group in groups)
             {
-                if (group.Count() > 1 )
+                if (group.Count() > 1)
                 {
                     Console.WriteLine("Value {0} has {1} items", group.Key, group.Count());
                 }
             }
 
+            //TODO: Implement a way of removing duplicate systems
         }
     }
-    
+
     public class System
     {
         public int Id;
