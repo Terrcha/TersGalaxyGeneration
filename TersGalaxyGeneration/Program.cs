@@ -17,17 +17,11 @@ namespace TersGalaxyGeneration
     public class GalaxyGen
     {
         private static Vector2 _mapSize = new Vector2(-500, 500);
-
         private static MapSetup _mapSetup = MapSetup.Medium;
-
         private static int _maxDepth = 10;
-        private static int _maxNumberOfSystems = 1500;
-        private static int _minNumberOfSystems = 500;
-
-        private static Vector2[] _generatedSystems;
+        private static Vector2[] _generatedSystems = {};
         private static int _numberOfSystems;
-
-        private static List<System> _systems;
+        private static List<System> _systems = new List<System>(){};
 
         static void Main()
         {
@@ -36,21 +30,12 @@ namespace TersGalaxyGeneration
             SystemGeneration();
             GenerateSystems();
         }
-
-        private static void System()
-        {
-            int id;
-            string name;
-            Vector2 pos;
-            string initializer;
-        }
-
+        
         private static void SystemGeneration()
         {
             CheckUserInputForMapSize();
         }
-
-
+        
         /// <summary>
         /// Check user input for which size galaxy should be generated.
         /// </summary>
@@ -162,12 +147,19 @@ namespace TersGalaxyGeneration
         {
         }
     }
-
+    
     public class System
     {
         public int Id;
         public string Name = "";
         public Vector2 Pos;
         public string Initializer = "";
+    }
+
+    public class Nebulae
+    {
+        public string Name = "";
+        public Vector2 Pos;
+        public int Radius;
     }
 }
