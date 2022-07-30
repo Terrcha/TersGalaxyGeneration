@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Numerics;
+using System.Linq;
 
 namespace TersGalaxyGeneration
 {
@@ -26,7 +27,7 @@ namespace TersGalaxyGeneration
         static void Main()
         {
             SystemGeneration();
-            GenerateSystems();
+            GenerateSystems(_numberOfSystems, true);
         }
 
         private static void SystemGeneration()
@@ -116,13 +117,17 @@ namespace TersGalaxyGeneration
             return systemAmount;
         }
 
-        private static void GenerateSystems()
+        private static void GenerateSystems(int numberOfSystemToGenerate, bool initializeLists)
         {
-            // Initialise
-            _systems = new List<System>(_numberOfSystems);
-            _generatedSystems = new Vector2[_numberOfSystems];
+            if (initializeLists)
+            {
+                // Initialise
+                _systems = new List<System>(_numberOfSystems);
+                _generatedSystems = new Vector2[_numberOfSystems];
+            }
+            
 
-            for (int i = 0; i < _numberOfSystems; i++)
+            for (int i = 0; i < numberOfSystemToGenerate; i++)
             {
                 Random rnd = new Random();
                 int systemX = rnd.Next((int)_mapSize.X, (int)_mapSize.Y);
@@ -144,22 +149,50 @@ namespace TersGalaxyGeneration
 
         private static void CheckForDuplicates()
         {
-            Vector2[] systemArray = new Vector2[_systems.Count];
+            Console.WriteLine("Checking for duplicated systems coords");
+            
+            Vector2[] systemPos = new Vector2[_systems.Count];
+
             for (int i = 0; i < _systems.Count; i++)
             {
-                systemArray[i] = _systems[i].Pos;
-            }
-            
-            var groups = systemArray.GroupBy(v => v);
-            foreach (var group in groups)
-            {
-                if (group.Count() > 1)
-                {
-                    Console.WriteLine("Value {0} has {1} items", group.Key, group.Count());
-                }
+                systemPos[i] = _systems[i].Pos;
             }
 
-            //TODO: Implement a way of removing duplicate systems
+            var duplicateSearch = systemPos
+                .Select((pos, index) => new { pos, index })
+                .GroupBy(x => x.pos)
+                .Select(xg => new
+                {
+                    pos = xg.Key,
+                    Indices = xg.Select(x => x.index)
+                })
+                .Where(x => x.Indices.Count() > 1);
+
+            var enumerable = duplicateSearch.ToList();
+            int numberOfHits = enumerable.ToArray().Length;
+            Console.WriteLine($"{numberOfHits} duplicates have been identified the coords are:");
+
+            int diplayDupesCount = 0;
+            foreach (var g in enumerable)
+            {
+                diplayDupesCount++;
+                int[] duplicatedIndices = g.Indices.ToArray();
+                Console.WriteLine("########################");
+                for (int i = 0; i < duplicatedIndices.Length; i++)
+                {
+                    
+                    Console.WriteLine($"{diplayDupesCount}: duplicate indices are {duplicatedIndices[i]}");
+                }
+                Console.WriteLine("########################");
+                
+                Console.WriteLine("Removing those systems now");
+                Thread.Sleep(300);
+            }
+        }
+
+        private void RemoveDuplicateSystems()
+        {
+            
         }
     }
 
