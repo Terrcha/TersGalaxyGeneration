@@ -1,9 +1,11 @@
-﻿using System.Diagnostics;
-using System.Numerics;
-using System.Linq;
+﻿using System.Numerics;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 namespace TersGalaxyGeneration
 {
+    
     public enum MapSetup
     {
         Tiny,
@@ -13,6 +15,29 @@ namespace TersGalaxyGeneration
         Huge,
         Massive,
         Gargantuan
+    }
+    
+    public class System
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = "";
+        public Vector2 Pos { get; set; }
+        public string Initializer { get; set; } = "";
+    }
+
+    public class Nebulae
+    {
+        public string Name { get; set; } = "";
+        public Vector2 Pos { get; set; }
+        public int Radius { get; set; }
+    }
+
+    public class NameGeneration
+    {
+        public string[] StarNames { get; set; } = new[] { "1", "2" };
+        public string[] NebulaeNames { get; set; } = new[] { "a", "b" };
+        public string[] BlackHoleNames { get; set; } = new[] { "A1", "B2" };
+
     }
 
     public class GalaxyGen
@@ -28,6 +53,31 @@ namespace TersGalaxyGeneration
         {
             SystemGeneration();
             GenerateSystems(_numberOfSystems, true);
+            SerializeTest();
+            
+        }
+
+        private static void SerializeTest()
+        {
+            NameGeneration nameGeneration = new NameGeneration();
+            nameGeneration.StarNames = new[] { "Test", "Hello" };
+            nameGeneration.NebulaeNames = new[] { "1", "2", "3" };
+            nameGeneration.BlackHoleNames = new[] { "south maw" };
+            
+            string workingDirectory = Environment.CurrentDirectory;
+            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName + @"\common\namegen.json";
+
+            string json = JsonConvert.SerializeObject(nameGeneration, Formatting.Indented);
+            
+            File.WriteAllText(projectDirectory, json);
+            
+            /*using (StreamWriter file = File.CreateText(projectDirectory))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, nameGeneration);
+            }*/
+            
+            
         }
 
         private static void SystemGeneration()
@@ -215,18 +265,5 @@ namespace TersGalaxyGeneration
         }
     }
 
-    public class System
-    {
-        public int Id;
-        public string Name = "";
-        public Vector2 Pos;
-        public string Initializer = "";
-    }
-
-    public class Nebulae
-    {
-        public string Name = "";
-        public Vector2 Pos;
-        public int Radius;
-    }
+  
 }
