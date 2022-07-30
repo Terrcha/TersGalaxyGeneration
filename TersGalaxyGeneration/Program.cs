@@ -170,29 +170,48 @@ namespace TersGalaxyGeneration
 
             var enumerable = duplicateSearch.ToList();
             int numberOfHits = enumerable.ToArray().Length;
-            Console.WriteLine($"{numberOfHits} duplicates have been identified the coords are:");
-
-            int diplayDupesCount = 0;
-            foreach (var g in enumerable)
+            Console.WriteLine($"{numberOfHits} duplicates have been");
+            
+            if (numberOfHits > 0)
             {
-                diplayDupesCount++;
-                int[] duplicatedIndices = g.Indices.ToArray();
-                Console.WriteLine("########################");
-                for (int i = 0; i < duplicatedIndices.Length; i++)
+                int diplayDupesCount = 0;
+                int[] duplicatedIndices = new int[] { };
+                Console.WriteLine("Displaying duplicate systems");
+                foreach (var g in enumerable)
                 {
+                    diplayDupesCount++;
+                    duplicatedIndices = g.Indices.ToArray();
+                    Console.WriteLine("########################");
+                    for (int i = 0; i < duplicatedIndices.Length; i++)
+                    {
                     
-                    Console.WriteLine($"{diplayDupesCount}: duplicate indices are {duplicatedIndices[i]}");
-                }
-                Console.WriteLine("########################");
+                        Console.WriteLine($"{diplayDupesCount}: duplicate indices are {duplicatedIndices[i]}");
+                        Console.WriteLine($"{diplayDupesCount}: Position is {g.pos}");
+                    }
+                    Console.WriteLine("########################");
                 
-                Console.WriteLine("Removing those systems now");
-                Thread.Sleep(300);
+                    Console.WriteLine("Removing those systems now");
+                    Thread.Sleep(300);
+                
+                }
+                
+                RemoveDuplicateSystems(duplicatedIndices);
+            }
+            else
+            {
+                Console.WriteLine("No duplicates have been found, proceeding to next step");
             }
         }
 
-        private void RemoveDuplicateSystems()
+        private static void RemoveDuplicateSystems(int[] indicesToRemove)
         {
+            for (int i = indicesToRemove.Length - 1; i >= 0; i--)
+            {
+                _systems.RemoveAt(indicesToRemove[i]);
+                Console.WriteLine(_systems.Count);
+            }
             
+            GenerateSystems(_numberOfSystems - _systems.Count, false);
         }
     }
 
