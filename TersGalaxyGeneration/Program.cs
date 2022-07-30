@@ -34,9 +34,9 @@ namespace TersGalaxyGeneration
 
     public class NameGeneration
     {
-        public string[] StarNames { get; set; } = new[] { "1", "2" };
-        public string[] NebulaeNames { get; set; } = new[] { "a", "b" };
-        public string[] BlackHoleNames { get; set; } = new[] { "A1", "B2" };
+        public string[] StarNames { get; set; } = new[] { "" };
+        public string[] NebulaeNames { get; set; } = new[] { "" };
+        public string[] BlackHoleNames { get; set; } = new[] { ""};
 
     }
 
@@ -48,36 +48,29 @@ namespace TersGalaxyGeneration
         private static Vector2[] _generatedSystems = { };
         private static int _numberOfSystems;
         private static List<System> _systems = new List<System>() { };
+        private static NameGeneration _nameGeneration;
 
         static void Main()
         {
+            GetRandomNamesList();
             SystemGeneration();
             GenerateSystems(_numberOfSystems, true);
-            SerializeTest();
-            
+
         }
 
-        private static void SerializeTest()
+        private static void GetRandomNamesList()
         {
-            NameGeneration nameGeneration = new NameGeneration();
-            nameGeneration.StarNames = new[] { "Test", "Hello" };
-            nameGeneration.NebulaeNames = new[] { "1", "2", "3" };
-            nameGeneration.BlackHoleNames = new[] { "south maw" };
-            
             string workingDirectory = Environment.CurrentDirectory;
             string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName + @"\common\namegen.json";
-
-            string json = JsonConvert.SerializeObject(nameGeneration, Formatting.Indented);
-            
-            File.WriteAllText(projectDirectory, json);
-            
-            /*using (StreamWriter file = File.CreateText(projectDirectory))
+            if (File.Exists(projectDirectory))
             {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, nameGeneration);
-            }*/
-            
-            
+                _nameGeneration = JsonConvert.DeserializeObject<NameGeneration>(File.ReadAllText(projectDirectory));
+            }
+            else
+            {
+                Console.WriteLine("Could not convert name generation json to class");
+                return;
+            }
         }
 
         private static void SystemGeneration()
