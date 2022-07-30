@@ -1,11 +1,8 @@
 ﻿using System.Numerics;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
 
 namespace TersGalaxyGeneration
 {
-    
     public enum MapSetup
     {
         Tiny,
@@ -16,7 +13,7 @@ namespace TersGalaxyGeneration
         Massive,
         Gargantuan
     }
-    
+
     public class System
     {
         public int Id { get; set; }
@@ -36,8 +33,7 @@ namespace TersGalaxyGeneration
     {
         public string[] StarNames { get; set; } = new[] { "" };
         public string[] NebulaeNames { get; set; } = new[] { "" };
-        public string[] BlackHoleNames { get; set; } = new[] { ""};
-
+        public string[] BlackHoleNames { get; set; } = new[] { "" };
     }
 
     public class GalaxyGen
@@ -55,13 +51,13 @@ namespace TersGalaxyGeneration
             GetRandomNamesList();
             SystemGeneration();
             GenerateSystems(_numberOfSystems, true);
-
         }
 
         private static void GetRandomNamesList()
         {
             string workingDirectory = Environment.CurrentDirectory;
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.Parent.FullName + @"\common\namegen.json";
+            string projectDirectory =
+                Directory.GetParent(workingDirectory).Parent.Parent.FullName + @"\common\namegen.json";
             if (File.Exists(projectDirectory))
             {
                 _nameGeneration = JsonConvert.DeserializeObject<NameGeneration>(File.ReadAllText(projectDirectory));
@@ -168,21 +164,24 @@ namespace TersGalaxyGeneration
                 _systems = new List<System>(_numberOfSystems);
                 _generatedSystems = new Vector2[_numberOfSystems];
             }
-            
+
 
             for (int i = 0; i < numberOfSystemToGenerate; i++)
             {
                 Random rnd = new Random();
                 int systemX = rnd.Next((int)_mapSize.X, (int)_mapSize.Y);
                 int systemY = rnd.Next((int)_mapSize.X, (int)_mapSize.Y);
-
+                int starNameIndex = rnd.Next(0, _nameGeneration.StarNames.Length);
+                string starName = _nameGeneration.StarNames[starNameIndex];
+                int indexToRemove = starNameIndex;
+                _nameGeneration.StarNames = _nameGeneration.StarNames.Where((source, index) => index != indexToRemove).ToArray();
                 _generatedSystems[i] = new Vector2(systemX, systemY);
                 System generatedSystem = new System()
                 {
                     Id = i,
-                    Name = "i",
+                    Name = starName,
                     Pos = _generatedSystems[i],
-                    Initializer = $"{i}_system_initializer"
+                    Initializer = $"{starName}_system_initializer"
                 };
                 _systems.Add(generatedSystem);
             }
@@ -192,29 +191,36 @@ namespace TersGalaxyGeneration
 
         private static void CheckForDuplicates()
         {
-            Console.WriteLine("Checking for duplicated systems coords");
-            
+            Console.WriteLine("Checking for duplicated systems");
+
             Vector2[] systemPos = new Vector2[_systems.Count];
+            string[] systemName = new string[_systems.Count];
 
             for (int i = 0; i < _systems.Count; i++)
             {
                 systemPos[i] = _systems[i].Pos;
+                systemName[i] = _systems[i].Name;
             }
-
-            var duplicateSearch = systemPos
+            
+            SystemPosDuplicateCheck(systemPos);
+        }
+        
+        private static void SystemPosDuplicateCheck(Vector2[] systemPos)
+        {
+        var duplicatePosSearch = systemPos
                 .Select((pos, index) => new { pos, index })
                 .GroupBy(x => x.pos)
                 .Select(xg => new
                 {
                     pos = xg.Key,
-                    Indices = xg.Select(x => x.index)
+                    indices = xg.Select(x => x.index)
                 })
-                .Where(x => x.Indices.Count() > 1);
+                .Where(x => x.indices.Count() > 1);
 
-            var enumerable = duplicateSearch.ToList();
+            var enumerable = duplicatePosSearch.ToList();
             int numberOfHits = enumerable.ToArray().Length;
             Console.WriteLine($"{numberOfHits} duplicates have been");
-            
+
             if (numberOfHits > 0)
             {
                 int diplayDupesCount = 0;
@@ -223,27 +229,23 @@ namespace TersGalaxyGeneration
                 foreach (var g in enumerable)
                 {
                     diplayDupesCount++;
-                    duplicatedIndices = g.Indices.ToArray();
+                    duplicatedIndices = g.indices.ToArray();
                     Console.WriteLine("########################");
                     for (int i = 0; i < duplicatedIndices.Length; i++)
                     {
-                    
                         Console.WriteLine($"{diplayDupesCount}: duplicate indices are {duplicatedIndices[i]}");
                         Console.WriteLine($"{diplayDupesCount}: Position is {g.pos}");
                     }
+
                     Console.WriteLine("########################");
-                
+
                     Console.WriteLine("Removing those systems now");
                     Thread.Sleep(300);
-                
                 }
-                
+
                 RemoveDuplicateSystems(duplicatedIndices);
             }
-            else
-            {
-                Console.WriteLine("No duplicates have been found, proceeding to next step");
-            }
+            Console.WriteLine("No duplicates have been found, proceeding to next step");
         }
 
         private static void RemoveDuplicateSystems(int[] indicesToRemove)
@@ -253,10 +255,8 @@ namespace TersGalaxyGeneration
                 _systems.RemoveAt(indicesToRemove[i]);
                 Console.WriteLine(_systems.Count);
             }
-            
+
             GenerateSystems(_numberOfSystems - _systems.Count, false);
         }
     }
-
-  
 }
