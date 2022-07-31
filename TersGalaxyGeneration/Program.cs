@@ -27,7 +27,7 @@ namespace TersGalaxyGeneration
         public int Priority = 0;
         public int MaxNumberOfEmpires = 60;
         public int MinNumberOfEmpires = 0;
-        public int DeafultNumberOfEmpires = 20;
+        public int DefaultNumberOfEmpires = 20;
         public int DefaultNumberOfFallenEmpires = 4;
         public int ManxNumberOfFallenEmpires = 4;
         public int NumberOfAdvancedAi = 7;
@@ -250,18 +250,18 @@ namespace TersGalaxyGeneration
 
             if (numberOfHits > 0)
             {
-                int diplayDupesCount = 0;
+                int displayDupesCount = 0;
                 int[] duplicatedIndices = new int[] { };
                 Console.WriteLine("Displaying duplicate systems");
                 foreach (var g in enumerable)
                 {
-                    diplayDupesCount++;
+                    displayDupesCount++;
                     duplicatedIndices = g.indices.ToArray();
                     Console.WriteLine("########################");
                     for (int i = 0; i < duplicatedIndices.Length; i++)
                     {
-                        Console.WriteLine($"{diplayDupesCount}: duplicate indices are {duplicatedIndices[i]}");
-                        Console.WriteLine($"{diplayDupesCount}: Position is {g.pos}");
+                        Console.WriteLine($"{displayDupesCount}: duplicate indices are {duplicatedIndices[i]}");
+                        Console.WriteLine($"{displayDupesCount}: Position is {g.pos}");
                     }
 
                     Console.WriteLine("########################");
