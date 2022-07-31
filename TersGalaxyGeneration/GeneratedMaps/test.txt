@@ -1,0 +1,1614 @@
+static_galaxy_scenario = {
+	name = test
+	priority = 0
+	default = no
+	colonizable_planet_odds = 1.0
+	num_empires = { min = 0 max = 60 }
+	num_empire_default = 21
+	fallen_empire_default = 4
+	fallen_empire_max = 4
+	advanced_empire_default = 7
+	random_hyperlanes = yes
+	primitive_odds = 1.0
+	crisis_strength = 1.0
+
+	system = {
+		id = 0
+		position = {
+			x = 89
+			y = -327
+		}
+	}
+
+	system = {
+		id = 1
+		position = {
+			x = -329
+			y = 91
+		}
+	}
+
+	system = {
+		id = 2
+		position = {
+			x = 163
+			y = -146
+		}
+	}
+
+	system = {
+		id = 3
+		position = {
+			x = -175
+			y = 170
+		}
+	}
+
+	system = {
+		id = 4
+		position = {
+			x = -98
+			y = 339
+		}
+	}
+
+	system = {
+		id = 5
+		position = {
+			x = -224
+			y = -27
+		}
+	}
+
+	system = {
+		id = 6
+		position = {
+			x = 139
+			y = 396
+		}
+	}
+
+	system = {
+		id = 7
+		position = {
+			x = 347
+			y = -175
+		}
+	}
+
+	system = {
+		id = 8
+		position = {
+			x = 395
+			y = -202
+		}
+	}
+
+	system = {
+		id = 9
+		position = {
+			x = -427
+			y = 101
+		}
+	}
+
+	system = {
+		id = 10
+		position = {
+			x = -53
+			y = -475
+		}
+	}
+
+	system = {
+		id = 11
+		position = {
+			x = 231
+			y = -260
+		}
+	}
+
+	system = {
+		id = 12
+		position = {
+			x = 448
+			y = 152
+		}
+	}
+
+	system = {
+		id = 13
+		position = {
+			x = -451
+			y = 262
+		}
+	}
+
+	system = {
+		id = 14
+		position = {
+			x = 291
+			y = 382
+		}
+	}
+
+	system = {
+		id = 15
+		position = {
+			x = 57
+			y = -370
+		}
+	}
+
+	system = {
+		id = 16
+		position = {
+			x = -293
+			y = 474
+		}
+	}
+
+	system = {
+		id = 17
+		position = {
+			x = 118
+			y = -183
+		}
+	}
+
+	system = {
+		id = 18
+		position = {
+			x = 483
+			y = 491
+		}
+	}
+
+	system = {
+		id = 19
+		position = {
+			x = 451
+			y = -151
+		}
+	}
+
+	system = {
+		id = 20
+		position = {
+			x = -206
+			y = 64
+		}
+	}
+
+	system = {
+		id = 21
+		position = {
+			x = 80
+			y = -380
+		}
+	}
+
+	system = {
+		id = 22
+		position = {
+			x = -384
+			y = -399
+		}
+	}
+
+	system = {
+		id = 23
+		position = {
+			x = 407
+			y = 475
+		}
+	}
+
+	system = {
+		id = 24
+		position = {
+			x = 415
+			y = 356
+		}
+	}
+
+	system = {
+		id = 25
+		position = {
+			x = -108
+			y = -96
+		}
+	}
+
+	system = {
+		id = 26
+		position = {
+			x = 87
+			y = 421
+		}
+	}
+
+	system = {
+		id = 27
+		position = {
+			x = 210
+			y = 257
+		}
+	}
+
+	system = {
+		id = 28
+		position = {
+			x = -96
+			y = 405
+		}
+	}
+
+	system = {
+		id = 29
+		position = {
+			x = -279
+			y = 479
+		}
+	}
+
+	system = {
+		id = 30
+		position = {
+			x = 448
+			y = 323
+		}
+	}
+
+	system = {
+		id = 31
+		position = {
+			x = 78
+			y = -130
+		}
+	}
+
+	system = {
+		id = 32
+		position = {
+			x = -428
+			y = -220
+		}
+	}
+
+	system = {
+		id = 33
+		position = {
+			x = 434
+			y = -24
+		}
+	}
+
+	system = {
+		id = 34
+		position = {
+			x = 284
+			y = 190
+		}
+	}
+
+	system = {
+		id = 35
+		position = {
+			x = 62
+			y = -411
+		}
+	}
+
+	system = {
+		id = 36
+		position = {
+			x = -245
+			y = -400
+		}
+	}
+
+	system = {
+		id = 37
+		position = {
+			x = 459
+			y = -62
+		}
+	}
+
+	system = {
+		id = 38
+		position = {
+			x = 272
+			y = 41
+		}
+	}
+
+	system = {
+		id = 39
+		position = {
+			x = -311
+			y = -116
+		}
+	}
+
+	system = {
+		id = 40
+		position = {
+			x = 277
+			y = 347
+		}
+	}
+
+	system = {
+		id = 41
+		position = {
+			x = 217
+			y = -449
+		}
+	}
+
+	system = {
+		id = 42
+		position = {
+			x = -70
+			y = 164
+		}
+	}
+
+	system = {
+		id = 43
+		position = {
+			x = 113
+			y = -172
+		}
+	}
+
+	system = {
+		id = 44
+		position = {
+			x = 433
+			y = 29
+		}
+	}
+
+	system = {
+		id = 45
+		position = {
+			x = 103
+			y = -389
+		}
+	}
+
+	system = {
+		id = 46
+		position = {
+			x = 442
+			y = 87
+		}
+	}
+
+	system = {
+		id = 47
+		position = {
+			x = -316
+			y = 337
+		}
+	}
+
+	system = {
+		id = 48
+		position = {
+			x = -321
+			y = 8
+		}
+	}
+
+	system = {
+		id = 49
+		position = {
+			x = 225
+			y = -30
+		}
+	}
+
+	system = {
+		id = 50
+		position = {
+			x = 474
+			y = 252
+		}
+	}
+
+	system = {
+		id = 51
+		position = {
+			x = -28
+			y = -99
+		}
+	}
+
+	system = {
+		id = 52
+		position = {
+			x = -396
+			y = -128
+		}
+	}
+
+	system = {
+		id = 53
+		position = {
+			x = -151
+			y = -63
+		}
+	}
+
+	system = {
+		id = 54
+		position = {
+			x = -348
+			y = 63
+		}
+	}
+
+	system = {
+		id = 55
+		position = {
+			x = 481
+			y = 107
+		}
+	}
+
+	system = {
+		id = 56
+		position = {
+			x = -131
+			y = -384
+		}
+	}
+
+	system = {
+		id = 57
+		position = {
+			x = 349
+			y = -438
+		}
+	}
+
+	system = {
+		id = 58
+		position = {
+			x = -303
+			y = -332
+		}
+	}
+
+	system = {
+		id = 59
+		position = {
+			x = 268
+			y = 77
+		}
+	}
+
+	system = {
+		id = 60
+		position = {
+			x = 469
+			y = -414
+		}
+	}
+
+	system = {
+		id = 61
+		position = {
+			x = 472
+			y = -56
+		}
+	}
+
+	system = {
+		id = 62
+		position = {
+			x = 212
+			y = 89
+		}
+	}
+
+	system = {
+		id = 63
+		position = {
+			x = -378
+			y = -367
+		}
+	}
+
+	system = {
+		id = 64
+		position = {
+			x = -361
+			y = 412
+		}
+	}
+
+	system = {
+		id = 65
+		position = {
+			x = 285
+			y = 62
+		}
+	}
+
+	system = {
+		id = 66
+		position = {
+			x = -235
+			y = 70
+		}
+	}
+
+	system = {
+		id = 67
+		position = {
+			x = 153
+			y = -405
+		}
+	}
+
+	system = {
+		id = 68
+		position = {
+			x = -394
+			y = 168
+		}
+	}
+
+	system = {
+		id = 69
+		position = {
+			x = -427
+			y = 127
+		}
+	}
+
+	system = {
+		id = 70
+		position = {
+			x = 136
+			y = 305
+		}
+	}
+
+	system = {
+		id = 71
+		position = {
+			x = 448
+			y = -387
+		}
+	}
+
+	system = {
+		id = 72
+		position = {
+			x = 457
+			y = 304
+		}
+	}
+
+	system = {
+		id = 73
+		position = {
+			x = 406
+			y = -139
+		}
+	}
+
+	system = {
+		id = 74
+		position = {
+			x = 53
+			y = -376
+		}
+	}
+
+	system = {
+		id = 75
+		position = {
+			x = 114
+			y = 269
+		}
+	}
+
+	system = {
+		id = 76
+		position = {
+			x = -8
+			y = 232
+		}
+	}
+
+	system = {
+		id = 77
+		position = {
+			x = 211
+			y = 79
+		}
+	}
+
+	system = {
+		id = 78
+		position = {
+			x = -456
+			y = -265
+		}
+	}
+
+	system = {
+		id = 79
+		position = {
+			x = 372
+			y = 38
+		}
+	}
+
+	system = {
+		id = 80
+		position = {
+			x = -303
+			y = -145
+		}
+	}
+
+	system = {
+		id = 81
+		position = {
+			x = 20
+			y = 107
+		}
+	}
+
+	system = {
+		id = 82
+		position = {
+			x = 134
+			y = -139
+		}
+	}
+
+	system = {
+		id = 83
+		position = {
+			x = 47
+			y = 94
+		}
+	}
+
+	system = {
+		id = 84
+		position = {
+			x = -236
+			y = 473
+		}
+	}
+
+	system = {
+		id = 85
+		position = {
+			x = 65
+			y = 364
+		}
+	}
+
+	system = {
+		id = 86
+		position = {
+			x = -182
+			y = -294
+		}
+	}
+
+	system = {
+		id = 87
+		position = {
+			x = -447
+			y = -308
+		}
+	}
+
+	system = {
+		id = 88
+		position = {
+			x = 185
+			y = 132
+		}
+	}
+
+	system = {
+		id = 89
+		position = {
+			x = -46
+			y = 315
+		}
+	}
+
+	system = {
+		id = 90
+		position = {
+			x = 70
+			y = -55
+		}
+	}
+
+	system = {
+		id = 91
+		position = {
+			x = 90
+			y = -96
+		}
+	}
+
+	system = {
+		id = 92
+		position = {
+			x = 303
+			y = -473
+		}
+	}
+
+	system = {
+		id = 93
+		position = {
+			x = -39
+			y = 78
+		}
+	}
+
+	system = {
+		id = 94
+		position = {
+			x = -200
+			y = -23
+		}
+	}
+
+	system = {
+		id = 95
+		position = {
+			x = -488
+			y = -236
+		}
+	}
+
+	system = {
+		id = 96
+		position = {
+			x = 473
+			y = -116
+		}
+	}
+
+	system = {
+		id = 97
+		position = {
+			x = 373
+			y = -259
+		}
+	}
+
+	system = {
+		id = 98
+		position = {
+			x = -197
+			y = -23
+		}
+	}
+
+	system = {
+		id = 99
+		position = {
+			x = -40
+			y = -275
+		}
+	}
+
+	system = {
+		id = 100
+		position = {
+			x = -198
+			y = -324
+		}
+	}
+
+	system = {
+		id = 101
+		position = {
+			x = -131
+			y = -416
+		}
+	}
+
+	system = {
+		id = 102
+		position = {
+			x = -429
+			y = 224
+		}
+	}
+
+	system = {
+		id = 103
+		position = {
+			x = -471
+			y = 121
+		}
+	}
+
+	system = {
+		id = 104
+		position = {
+			x = -267
+			y = 349
+		}
+	}
+
+	system = {
+		id = 105
+		position = {
+			x = -292
+			y = -153
+		}
+	}
+
+	system = {
+		id = 106
+		position = {
+			x = 62
+			y = -80
+		}
+	}
+
+	system = {
+		id = 107
+		position = {
+			x = -40
+			y = -115
+		}
+	}
+
+	system = {
+		id = 108
+		position = {
+			x = -152
+			y = 57
+		}
+	}
+
+	system = {
+		id = 109
+		position = {
+			x = -24
+			y = 397
+		}
+	}
+
+	system = {
+		id = 110
+		position = {
+			x = -34
+			y = -140
+		}
+	}
+
+	system = {
+		id = 111
+		position = {
+			x = -12
+			y = -456
+		}
+	}
+
+	system = {
+		id = 112
+		position = {
+			x = 215
+			y = -404
+		}
+	}
+
+	system = {
+		id = 113
+		position = {
+			x = -154
+			y = -45
+		}
+	}
+
+	system = {
+		id = 114
+		position = {
+			x = 274
+			y = -207
+		}
+	}
+
+	system = {
+		id = 115
+		position = {
+			x = 237
+			y = -357
+		}
+	}
+
+	system = {
+		id = 116
+		position = {
+			x = -149
+			y = 135
+		}
+	}
+
+	system = {
+		id = 117
+		position = {
+			x = -154
+			y = -146
+		}
+	}
+
+	system = {
+		id = 118
+		position = {
+			x = -310
+			y = -433
+		}
+	}
+
+	system = {
+		id = 119
+		position = {
+			x = 451
+			y = 27
+		}
+	}
+
+	system = {
+		id = 120
+		position = {
+			x = -152
+			y = 112
+		}
+	}
+
+	system = {
+		id = 121
+		position = {
+			x = 376
+			y = 50
+		}
+	}
+
+	system = {
+		id = 122
+		position = {
+			x = 169
+			y = -95
+		}
+	}
+
+	system = {
+		id = 123
+		position = {
+			x = 232
+			y = -111
+		}
+	}
+
+	system = {
+		id = 124
+		position = {
+			x = -67
+			y = 204
+		}
+	}
+
+	system = {
+		id = 125
+		position = {
+			x = -230
+			y = 173
+		}
+	}
+
+	system = {
+		id = 126
+		position = {
+			x = 92
+			y = 60
+		}
+	}
+
+	system = {
+		id = 127
+		position = {
+			x = 234
+			y = 370
+		}
+	}
+
+	system = {
+		id = 128
+		position = {
+			x = -382
+			y = 52
+		}
+	}
+
+	system = {
+		id = 129
+		position = {
+			x = -8
+			y = -498
+		}
+	}
+
+	system = {
+		id = 130
+		position = {
+			x = 448
+			y = -112
+		}
+	}
+
+	system = {
+		id = 131
+		position = {
+			x = 71
+			y = -10
+		}
+	}
+
+	system = {
+		id = 132
+		position = {
+			x = 64
+			y = 183
+		}
+	}
+
+	system = {
+		id = 133
+		position = {
+			x = 342
+			y = -88
+		}
+	}
+
+	system = {
+		id = 134
+		position = {
+			x = -79
+			y = -242
+		}
+	}
+
+	system = {
+		id = 135
+		position = {
+			x = 311
+			y = -254
+		}
+	}
+
+	system = {
+		id = 136
+		position = {
+			x = 465
+			y = -18
+		}
+	}
+
+	system = {
+		id = 137
+		position = {
+			x = 81
+			y = 170
+		}
+	}
+
+	system = {
+		id = 138
+		position = {
+			x = 230
+			y = -229
+		}
+	}
+
+	system = {
+		id = 139
+		position = {
+			x = 230
+			y = -201
+		}
+	}
+
+	system = {
+		id = 140
+		position = {
+			x = -341
+			y = -7
+		}
+	}
+
+	system = {
+		id = 141
+		position = {
+			x = -298
+			y = -457
+		}
+	}
+
+	system = {
+		id = 142
+		position = {
+			x = -335
+			y = 403
+		}
+	}
+
+	system = {
+		id = 143
+		position = {
+			x = 370
+			y = -139
+		}
+	}
+
+	system = {
+		id = 144
+		position = {
+			x = 341
+			y = -182
+		}
+	}
+
+	system = {
+		id = 145
+		position = {
+			x = -493
+			y = -429
+		}
+	}
+
+	system = {
+		id = 146
+		position = {
+			x = -375
+			y = 384
+		}
+	}
+
+	system = {
+		id = 147
+		position = {
+			x = 481
+			y = -377
+		}
+	}
+
+	system = {
+		id = 148
+		position = {
+			x = -280
+			y = 83
+		}
+	}
+
+	system = {
+		id = 149
+		position = {
+			x = 357
+			y = 460
+		}
+	}
+
+	system = {
+		id = 150
+		position = {
+			x = 375
+			y = 271
+		}
+	}
+
+	system = {
+		id = 151
+		position = {
+			x = -209
+			y = -430
+		}
+	}
+
+	system = {
+		id = 152
+		position = {
+			x = 168
+			y = 376
+		}
+	}
+
+	system = {
+		id = 153
+		position = {
+			x = -146
+			y = 170
+		}
+	}
+
+	system = {
+		id = 154
+		position = {
+			x = 11
+			y = -5
+		}
+	}
+
+	system = {
+		id = 155
+		position = {
+			x = -270
+			y = -381
+		}
+	}
+
+	system = {
+		id = 156
+		position = {
+			x = -232
+			y = 109
+		}
+	}
+
+	system = {
+		id = 157
+		position = {
+			x = 243
+			y = -385
+		}
+	}
+
+	system = {
+		id = 158
+		position = {
+			x = -194
+			y = 94
+		}
+	}
+
+	system = {
+		id = 159
+		position = {
+			x = -37
+			y = -132
+		}
+	}
+
+	system = {
+		id = 160
+		position = {
+			x = -176
+			y = 387
+		}
+	}
+
+	system = {
+		id = 161
+		position = {
+			x = 391
+			y = 183
+		}
+	}
+
+	system = {
+		id = 162
+		position = {
+			x = -170
+			y = 58
+		}
+	}
+
+	system = {
+		id = 163
+		position = {
+			x = -195
+			y = 383
+		}
+	}
+
+	system = {
+		id = 164
+		position = {
+			x = -225
+			y = -424
+		}
+	}
+
+	system = {
+		id = 165
+		position = {
+			x = 408
+			y = 423
+		}
+	}
+
+	system = {
+		id = 166
+		position = {
+			x = -196
+			y = 129
+		}
+	}
+
+	system = {
+		id = 167
+		position = {
+			x = -221
+			y = -486
+		}
+	}
+
+	system = {
+		id = 168
+		position = {
+			x = 155
+			y = 149
+		}
+	}
+
+	system = {
+		id = 169
+		position = {
+			x = -344
+			y = -419
+		}
+	}
+
+	system = {
+		id = 170
+		position = {
+			x = -475
+			y = -405
+		}
+	}
+
+	system = {
+		id = 171
+		position = {
+			x = -478
+			y = 491
+		}
+	}
+
+	system = {
+		id = 172
+		position = {
+			x = 251
+			y = 467
+		}
+	}
+
+	system = {
+		id = 173
+		position = {
+			x = 187
+			y = -328
+		}
+	}
+
+	system = {
+		id = 174
+		position = {
+			x = 213
+			y = -37
+		}
+	}
+
+	system = {
+		id = 175
+		position = {
+			x = -394
+			y = -68
+		}
+	}
+
+	system = {
+		id = 176
+		position = {
+			x = 292
+			y = 333
+		}
+	}
+
+	system = {
+		id = 177
+		position = {
+			x = -289
+			y = 300
+		}
+	}
+
+	system = {
+		id = 178
+		position = {
+			x = -494
+			y = 118
+		}
+	}
+
+	system = {
+		id = 179
+		position = {
+			x = -478
+			y = -40
+		}
+	}
+
+	system = {
+		id = 180
+		position = {
+			x = 164
+			y = 59
+		}
+	}
+
+	system = {
+		id = 181
+		position = {
+			x = -284
+			y = 409
+		}
+	}
+
+	system = {
+		id = 182
+		position = {
+			x = 173
+			y = 71
+		}
+	}
+
+	system = {
+		id = 183
+		position = {
+			x = -373
+			y = -144
+		}
+	}
+
+	system = {
+		id = 184
+		position = {
+			x = -457
+			y = -166
+		}
+	}
+
+	system = {
+		id = 185
+		position = {
+			x = 14
+			y = -127
+		}
+	}
+
+	system = {
+		id = 186
+		position = {
+			x = -74
+			y = -316
+		}
+	}
+
+	system = {
+		id = 187
+		position = {
+			x = 266
+			y = -330
+		}
+	}
+
+	system = {
+		id = 188
+		position = {
+			x = -16
+			y = -426
+		}
+	}
+
+	system = {
+		id = 189
+		position = {
+			x = 49
+			y = 360
+		}
+	}
+
+	system = {
+		id = 190
+		position = {
+			x = -224
+			y = -293
+		}
+	}
+
+	system = {
+		id = 191
+		position = {
+			x = -7
+			y = -259
+		}
+	}
+
+	system = {
+		id = 192
+		position = {
+			x = -377
+			y = -225
+		}
+	}
+
+	system = {
+		id = 193
+		position = {
+			x = 157
+			y = -371
+		}
+	}
+
+	system = {
+		id = 194
+		position = {
+			x = -362
+			y = -148
+		}
+	}
+
+	system = {
+		id = 195
+		position = {
+			x = -442
+			y = -249
+		}
+	}
+
+	system = {
+		id = 196
+		position = {
+			x = 449
+			y = 454
+		}
+	}
+
+	system = {
+		id = 197
+		position = {
+			x = 111
+			y = 164
+		}
+	}
+
+	system = {
+		id = 198
+		position = {
+			x = 59
+			y = -415
+		}
+	}
+
+	system = {
+		id = 199
+		position = {
+			x = -447
+			y = -201
+		}
+	}
+}

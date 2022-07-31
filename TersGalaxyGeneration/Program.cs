@@ -13,6 +13,24 @@ namespace TersGalaxyGeneration
         Massive,
         Gargantuan
     }
+    
+    public class GalaxyOptions
+    {
+        public string MapName = "test";
+        public int Priority = 0;
+        public string OptDefault = "no";
+        public float ColonizablePlanetOdds = 1.0f;
+        public int MaxNumberOfEmpires = 60;
+        public int MinNumberOfEmpires = 0;
+        public int DeafultNumberOfEmpires = 20;
+        public int DefaultNumberOfFallenEmpires = 4;
+        public int ManxNumberOfFallenEmpires = 4;
+        public int NumberOfAdvancedAi = 7;
+        public int CoreRadius = 0;
+        public string RandomHyperlanes = "yes";
+        public float PrimitiveOdds = 1.0f;
+        public float CrisisStrength = 1.0f;
+    }
 
     public class System
     {
@@ -45,12 +63,19 @@ namespace TersGalaxyGeneration
         private static int _numberOfSystems;
         private static List<System> _systems = new List<System>() { };
         private static NameGeneration _nameGeneration;
+        private static string _directory;
 
         static void Main()
         {
+            _directory = Environment.CurrentDirectory;
+
+            Directory.CreateDirectory(_directory + @"/GeneratedMaps");
+            
             GetRandomNamesList();
             SystemGeneration();
             GenerateSystems(_numberOfSystems, true);
+            
+            WriteToFile();
         }
 
         private static void GetRandomNamesList()
@@ -257,6 +282,39 @@ namespace TersGalaxyGeneration
             }
 
             GenerateSystems(_numberOfSystems - _systems.Count, false);
+        }
+
+        private static void WriteToFile()
+        {
+            using (StreamWriter sw = new StreamWriter(@"D:\Repo\TersGalaxyGeneration\TersGalaxyGeneration\GeneratedMaps\test.txt"))
+            {
+                sw.Write("static_galaxy_scenario = {");
+                sw.Write("\n\tname = test");
+                sw.Write("\n\tpriority = 0");
+                sw.Write("\n\tdefault = no");
+                sw.Write("\n\tcolonizable_planet_odds = 1.0");
+                sw.Write("\n\tnum_empires = { min = 0 max = 60 }");
+                sw.Write("\n\tnum_empire_default = 21");
+                sw.Write("\n\tfallen_empire_default = 4");
+                sw.Write("\n\tfallen_empire_max = 4");
+                sw.Write("\n\tadvanced_empire_default = 7");
+                sw.Write("\n\trandom_hyperlanes = yes");
+                sw.Write("\n\tprimitive_odds = 1.0");
+                sw.Write("\n\tcrisis_strength = 1.0");
+
+                for (int i = 0; i < _numberOfSystems; i++)
+                {
+                    sw.Write("\n\n\tsystem = {");
+                    sw.Write($"\n\t\tid = {_systems[i].Id}");
+                    sw.Write("\n\t\tposition = {");
+                    sw.Write($"\n\t\t\tx = {_systems[i].Pos.X}");
+                    sw.Write($"\n\t\t\ty = {_systems[i].Pos.Y}");
+                    sw.Write("\n\t\t}");
+                    sw.Write("\n\t}");
+                }
+                
+                sw.Write("\n}");
+            }
         }
     }
 }
