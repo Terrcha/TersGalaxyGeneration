@@ -17,9 +17,14 @@ namespace TersGalaxyGeneration
     public class GalaxyOptions
     {
         public string MapName = "test";
-        public int Priority = 0;
         public string OptDefault = "no";
+        public string RandomHyperlanes = "yes";
+
         public float ColonizablePlanetOdds = 1.0f;
+        public float PrimitiveOdds = 1.0f;
+        public float CrisisStrength = 1.0f;
+
+        public int Priority = 0;
         public int MaxNumberOfEmpires = 60;
         public int MinNumberOfEmpires = 0;
         public int DeafultNumberOfEmpires = 20;
@@ -27,9 +32,6 @@ namespace TersGalaxyGeneration
         public int ManxNumberOfFallenEmpires = 4;
         public int NumberOfAdvancedAi = 7;
         public int CoreRadius = 0;
-        public string RandomHyperlanes = "yes";
-        public float PrimitiveOdds = 1.0f;
-        public float CrisisStrength = 1.0f;
     }
 
     public class System
@@ -56,7 +58,7 @@ namespace TersGalaxyGeneration
 
     public class GalaxyGen
     {
-        private static Vector2 _mapSize = new Vector2(-500, 500);
+        private static Vector2 _mapSize = new Vector2(-400, 400);
         private static MapSetup _mapSetup = MapSetup.Medium;
         private static int _maxDepth = 10;
         private static Vector2[] _generatedSystems = { };
